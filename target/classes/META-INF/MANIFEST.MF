@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: springbootcrud
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: home
+Implementation-Vendor-Id: spring.test
+Build-Jdk: 1.8.0_181
+Implementation-URL: http://maven.apache.org
+Created-By: Maven Integration for Eclipse
+Main-Class: netgloo.Application
+
