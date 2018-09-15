@@ -11,7 +11,8 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String nameProduct;
-	private double price;
+	private String count;
+	private float price;
 	public Long getId() {
 		return id;
 	}
@@ -24,11 +25,17 @@ public class Product {
 	public void setNameProduct(String nameProduct) {
 		this.nameProduct = nameProduct;
 	}
-	public double getPrice() {
+	public float getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
+	public void setPrice(float price) {
 		this.price = price;
+	}
+	public String getCount() {
+		return count;
+	}
+	public void setCount(String count) {
+		this.count = count;
 	}
 	@Override
 	public String toString() {
@@ -38,9 +45,13 @@ public class Product {
 		builder.append(" ");
 		builder.append(nameProduct);
 		builder.append(" ");
+		builder.append(count);
+		builder.append(" ");
 		builder.append(price);
 		builder.append(" ");
 		return builder.toString();
 	}
+	
+
 
 }

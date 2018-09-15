@@ -5,7 +5,7 @@ import abuzarov.samorezik.controll.Parser;
 public class App {
 
 	public static void main(String[] args) {
-		System.out.println(Parser.parse("static/test1.xls"));
+		System.out.println(Parser.parse("static/list.xls"));
 
 	}
 
