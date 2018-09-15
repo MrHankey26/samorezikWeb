@@ -37,13 +37,15 @@ public class Parser {
 			Row row = it.next();
 			Iterator<Cell> cells = row.iterator();
 			while (cells.hasNext()) {
+
 				Cell cell = cells.next();
 				int cellType;
+				if (row.getRowNum() > 15) {
 					cellType = cell.getCellType();
 					switch (cellType) {
 					case Cell.CELL_TYPE_STRING:
-						if (cell.getStringCellValue().endsWith(", ")||cell.getStringCellValue()!=null) {
-							result+=cell.getStringCellValue();
+						if (!cell.getStringCellValue().endsWith(", ")) {
+							result += cell.getStringCellValue();
 							product.setNameProduct(result);
 							products.add(product);
 							break;
@@ -55,12 +57,14 @@ public class Parser {
 					default:
 						result += "|";
 						break;
-					
+
+					}
+					result += "\n";
 				}
-				result += "\n";
 			}
+
 		}
 		return products;
-	}
 
+	}
 }

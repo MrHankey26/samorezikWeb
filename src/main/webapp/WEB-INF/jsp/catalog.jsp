@@ -80,7 +80,7 @@ footer {
 			<c:forEach var="product" items="${product}">
 				<tr>
 
-					<td>${product.model}</td>
+					<td>${product.nameProduct}</td>
 					<td></td>
 					<td></td>
 					

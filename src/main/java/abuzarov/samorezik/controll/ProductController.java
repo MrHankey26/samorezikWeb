@@ -18,7 +18,8 @@ public class ProductController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("startPage");
 		for (Product product : Parser.parse("/static/test1.xls")) {
-	productService.save(product);
+			System.out.println(product);
+			productService.save(product);
 		}
 		return modelAndView;
 
@@ -28,6 +29,7 @@ public class ProductController {
 	public ModelAndView catalogPage() {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("catalog");
+		modelAndView.addObject("product", productService.findAll());
 		return modelAndView;
 	}
 
