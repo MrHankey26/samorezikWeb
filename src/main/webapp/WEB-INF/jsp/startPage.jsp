@@ -55,7 +55,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Главная</a></li>
-        <li><a href="/catalog.html">Каталог</a></li>
+        <li><a href="/catalog">Каталог</a></li>
         <li><a href="#">Контакты</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

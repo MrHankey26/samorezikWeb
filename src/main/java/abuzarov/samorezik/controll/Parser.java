@@ -39,12 +39,10 @@ public class Parser {
 			while (cells.hasNext()) {
 				Cell cell = cells.next();
 				int cellType;
-				if (row.getRowNum() > 14) {
-
 					cellType = cell.getCellType();
 					switch (cellType) {
 					case Cell.CELL_TYPE_STRING:
-						if (cell.getStringCellValue().endsWith(", ")) {
+						if (cell.getStringCellValue().endsWith(", ")||cell.getStringCellValue()!=null) {
 							result+=cell.getStringCellValue();
 							product.setNameProduct(result);
 							products.add(product);
@@ -52,10 +50,12 @@ public class Parser {
 						} else {
 							continue labelRow;
 						}
+					case Cell.CELL_TYPE_NUMERIC:
+						break;
 					default:
 						result += "|";
 						break;
-					}
+					
 				}
 				result += "\n";
 			}

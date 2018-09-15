@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Bootstrap Example</title>
+<title>Catalog</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -70,20 +70,19 @@ footer {
 	</nav>
 	<table class="table table-striped">
 		<thead>
-			<th>#</th>
+
 			<th>Наименование</th>		
 			<th>Количество</th>
 			<th>Цена</th>
 		</thead>
 
 		<tbody>
-			<c:forEach var="product" items="${geely}">
+			<c:forEach var="product" items="${product}">
 				<tr>
-					<td><a href="/img/${geely.imgUrl}"><img alt="geely"
-							src="/img/${geely.imgUrl}" width="30" height="30"></a></td>
-					<td>${geely.model}</td>
-					<td>${geely.year}</td>
-					<td>${geely.price}</td>
+
+					<td>${product.model}</td>
+					<td></td>
+					<td></td>
 					
 
 				</tr>

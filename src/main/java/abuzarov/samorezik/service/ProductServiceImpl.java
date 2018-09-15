@@ -3,6 +3,7 @@ package abuzarov.samorezik.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,7 @@ import abuzarov.samorezik.dao.ProductDao;
 import abuzarov.samorezik.model.Product;
 @Service
 public class ProductServiceImpl implements ProductService {
+	@Autowired
 	private ProductDao productDao;
 
 	@Override
