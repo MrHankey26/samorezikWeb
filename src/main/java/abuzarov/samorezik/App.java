@@ -1,11 +1,12 @@
 package abuzarov.samorezik;
 
-import abuzarov.samorezik.controll.Parser;
-
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+@SpringBootApplication
 public class App {
 
 	public static void main(String[] args) {
-		System.out.println(Parser.parse("static/test1.xls"));
+		SpringApplication.run(App.class, args);
 
 	}
 

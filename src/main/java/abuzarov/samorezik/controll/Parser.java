@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,8 +15,12 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.springframework.core.io.ClassPathResource;
 
+import abuzarov.samorezik.model.Product;
+
 public class Parser {
-	public static String parse(String name) {
+	public static ArrayList<Product> parse(String name) {
+		ArrayList<Product> products = new ArrayList<>();
+		Product product = new Product();
 		String result = "";
 		InputStream in = null;
 		HSSFWorkbook wb = null;
@@ -28,10 +33,10 @@ public class Parser {
 		}
 		Sheet sheet = wb.getSheetAt(0);
 		Iterator<Row> it = sheet.iterator();
-	labelRow:	while (it.hasNext()) {
+		labelRow: while (it.hasNext()) {
 			Row row = it.next();
 			Iterator<Cell> cells = row.iterator();
-		labelCell:	while (cells.hasNext()) {
+			while (cells.hasNext()) {
 				Cell cell = cells.next();
 				int cellType;
 				if (row.getRowNum() > 14) {
@@ -39,18 +44,14 @@ public class Parser {
 					cellType = cell.getCellType();
 					switch (cellType) {
 					case Cell.CELL_TYPE_STRING:
-						if (!cell.getStringCellValue().endsWith(", ")) {
-							result += cell.getStringCellValue();
+						if (cell.getStringCellValue().endsWith(", ")) {
+							result+=cell.getStringCellValue();
+							product.setNameProduct(result);
+							products.add(product);
 							break;
-						} else { 
+						} else {
 							continue labelRow;
 						}
-						
-					case Cell.CELL_TYPE_NUMERIC:
-
-						result += cell.getNumericCellValue();
-
-						break;
 					default:
 						result += "|";
 						break;
@@ -59,7 +60,7 @@ public class Parser {
 				result += "\n";
 			}
 		}
-		return result;
+		return products;
 	}
 
 }
