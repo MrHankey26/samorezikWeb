@@ -20,8 +20,7 @@ import abuzarov.samorezik.model.Product;
 public class Parser {
 	public static ArrayList<Product> parse(String name) {
 		ArrayList<Product> products = new ArrayList<>();
-		Product product = new Product();
-		String result = "";
+				String result = "";
 		InputStream in = null;
 		HSSFWorkbook wb = null;
 		try {
@@ -34,6 +33,8 @@ public class Parser {
 		Sheet sheet = wb.getSheetAt(0);
 		Iterator<Row> it = sheet.iterator();
 		labelRow: while (it.hasNext()) {
+			Product product = new Product();
+
 			Row row = it.next();
 			Iterator<Cell> cells = row.iterator();
 			while (cells.hasNext()) {
